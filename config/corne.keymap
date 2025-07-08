@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
         keymap {
@@ -14,42 +15,93 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+// | NONE | Q       | W      | E      | R        | T      |     | Y | U        | I       | O      | P         | NONE |
+// | NONE | LMETA A | LALT S | LCTL D | LSHIFT F | G      |     | H | LSHIFT J | LCTRL K | LALT L | LMETA '"' | NONE |
+// | NONE | Z       | X      | C      | V        | B      |     | N | M        | ,       | .      | /         | NONE |
+// | media_layer DEL | nav_layer SPACE | mouse_layer BSPC |     | symbol_layer TAB | number_layer RET  | function_layer ESC |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+   &none &kp Q       &kp W      &kp E       &kp R        &kp T            &kp Y &kp U        &kp I       &kp O      &kp P         &none
+   &none &mt LMETA A &mt LALT S &mt LCTRL D &mt LSHIFT F &kp G            &kp H &mt LSHIFT J &mt LCTRL K &mt LALT L &mt LMETA SQT &none
+   &kp   &kp Z       &kp X      &kp C       &kp V        &kp B            &kp N &kp M        &kp COMMA   &kp DOT    &kp FSLH      &none
+                              &lt 3 DEL &lt 1 SPACE &lt 2 BSPC            &lt 5 TAB &lt 4 RET &lt 6 ESC
                         >;
                 };
-                lower_layer {
+                nav_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// | ____ | boot  | reset | NONE  | NONE   | NONE |   | NONE   | NONE | NONE  | boot | reset    | ____ |
+// | ____ | LMETA | LALT  | LCTRL | LSHIFT | NONE |   | ????   | LEFT |  DOWN | UP   |  RIGHT   | ____ |
+// | ____ | NONE  | NONE  | NONE  | NONE   | NONE |   | INSERT | HOME | PGDN  | PGUP | END      | ____ |
+//                           | NONE | NONE | NONE |   | ENT | BSPC | DEL |
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+   &trans &bootloader &sys_reset &none     &none      &none     &none    &none    &none      &sys_reset   &bootloader  &trans
+   &trans &kp LMETA   &kp LALT   &kp LCTRL &kp LSHIFT &none     &kp LEFT &kp DOWN &kp UP     &kp RIGHT    &trans       &trans
+   &trans &none       &none      &none     &none      &none     &kp INS  &kp HOME &kp PG_DN  &kp PG_UP    &kp END      &trans
+                                 &none   &none     &none        &kp RET  &BSPC   &kp DEL
                         >;
                 };
-
-                raise_layer {
+                mouse_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// | ____ | NONE  | NONE | NONE  | NONE   | NONE |   | NONE | NONE | NONE  | NONE | NONE   | ____ |
+// | ____ | LMETA | LALT | LCTRL | LSHIFT | NONE |   | NONE | MS_L |  MS_D | MS_U | MS_R   | ____ |
+// | ____ | NONE  | RALT | NONE  | NONE   | NONE |   | NONE | WH_L | WH_D  | WH_U | WH_R   | ____ |
+//                          | NONE | NONE | NONE |   | BTN_2 | BTN_1 | BTN_3 |
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &trans &none     &none    &none     &none      &none       &none &none          &none          &none        &none           &trans
+   &trans &kp LMETA &kp LALT &kp LCTRL &kp LSHIFT &none       &none &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans
+   &trans &none     &kp RALT &none     &none      &none       &none &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &trans
+                    &none     &none       &none      &mkp MB2  &mkp MB1   &mkp MB3
+                        >;
+                };
+                media_layer {
+// -----------------------------------------------------------------------------------------
+// | ____ | NONE  | NONE | NONE  | NONE   | NONE |   | NONE | NONE | NONE | NONE | NONE | ____ |
+// | ____ | LMETA | LALT | LCTRL | LSHIFT | NONE |   | NONE | PREV | VOLD | VOLU | NEXT | ____ |
+// | ____ | NONE  | RALT | NONE  | NONE   | NONE |   | NONE | NONE | NONE | NONE | NONE | ____ |
+//                    | NONE | NONE | NONE |   | STOP | PLAY | MUTE |
+                        bindings = <
+   &trans &none     &none    &none     &none      &none         &none    &none    &none  &none     &none  &trans
+   &trans &kp LMETA &kp LALT &kp LCTRL &kp LSHIFT &none         &none    &kp K_PREV &kp K_VOL_DN &kp K_VOL_UP &K_NEXT &trans
+   &trans &none     &kp RALT &none     &none      &none         &none    &none    &none  &none     &none &trans
+                    &none     &none       &none              &kp K_STOP  &kp K_PP   &kp K_MUTE
+                        >;
+                };
+                number_layer {
+// -----------------------------------------------------------------------------------------
+// | ____ | 7 | 8 | 9 | * | : |   | none | none   | none  | none | none  | ____ |
+// | ____ | 4 | 5 | 6 | \ | = |   | none | LSHIFT | LCTRL | LALT | LMETA | ____ |
+// | ____ | 1 | 2 | 3 | / | ; |   | none | none   | none  | RALT | NONE  | ____ |
+//                | . | 0 | - |   | none | none | none |
+                        bindings = <
+   &trans &kp N7 &kp N8 &kp N9 &kp ASTRK &kp COLON     &none &none      &none     &none    &none     &trans
+   &trans &kp N4 &kp N5 &kp N6 &kp BSLH  &kp EQUAL     &none &kp LSHIFT &kp LCTRL &kp LALT &kp LMETA & trans
+   &trans &kp N1 &kp N2 &kp N3 &kp SLASH &kp SEMI      &none &none      &none     &none    &kp RALT  &trans
+                            &kp DOT &kp N0 &kp MINUS   &none   &none   &none
+                        >;
+                };
+                symbol_layer {
+// -----------------------------------------------------------------------------------------
+// | ____ | ! | @ | { | } | | |   | none | none   | none  | none | none  | ____ |
+// | ____ | # | $ | ( | ) | ` |   | none | LSHIFT | LCTRL | LALT | LMETA | ____ |
+// | ____ | % | ^ | [ | ] | ~ |   | none | none   | none  | RALT | NONE  | ____ |
+//                | - | & | _ |   | NONE | NONE | NONE |
+                        bindings = <
+   &trans &kp EXCL  &kp AT    &kp LBRC &kp RBRC &kp PIPE        &none &none      &none     &none    &none     &trans 
+   &trans &kp HASH  &kp DLLR  &kp LPAR &kp RPAR &kp GRAVE       &none &kp LSHIFT &kp LCTRL &kp LALT &kp LMETA & trans
+   &trans &kp PRCNT &kp CARET &kp LBKT &kp RBKT &kp TILDE       &none &none      &none     &none    &kp RALT  &trans 
+                             &kp MINUS &kp AMPS &kp UNDER       &none   &none   &none                                
+                        >;
+                };
+                function_layer {
+// -----------------------------------------------------------------------------------------
+// | ____ | F9 | F10 | F11 | F12 | PSCRN   |   | none | none   | none  | none | none  | ____ |
+// | ____ | F5 | F6  | F7  | F8  | SLCK |   | none | LSHIFT | LCTRL | LALT | LMETA | ____ |
+// | ____ | F1 | F2  | F3  | F4  | CLCK |   | none | none   | none  | RALT | NONE  | ____ |
+//                   | APP | SPC | TAB |   | NONE | NONE | NONE |                         
+                        bindings = <
+   &trans &kp F9 &kp F10 &kp F11 &kp F12 &kp PSCRN       &none &none      &none     &none    &none     &trans 
+   &trans &kp F5 &kp F6  &kp F7  &kp F8  &kp SLCK        &none &kp LSHIFT &kp LCTRL &kp LALT &kp LMETA & trans
+   &trans &kp F1 &kp F2  &kp F3  &kp F4  &kp CLCK        &none &none      &none     &none    &kp RALT  &trans 
+                      &kp K_APP &kp SPACE &kp TAB        &none   &none   &none
                         >;
                 };
         };
