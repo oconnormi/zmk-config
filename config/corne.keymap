@@ -59,9 +59,9 @@
 // | ____ | NONE  | RALT | NONE  | NONE   | NONE |   | NONE | NONE | NONE | NONE | NONE | ____ |
 //                    | NONE | NONE | NONE |   | STOP | PLAY | MUTE |
                         bindings = <
-   &trans &none     &none    &none     &none      &none         &none    &none    &none  &none     &none  &trans
-   &trans &kp LMETA &kp LALT &kp LCTRL &kp LSHIFT &none         &none    &kp K_PREV &kp K_VOL_DN &kp K_VOL_UP &K_NEXT &trans
-   &trans &none     &kp RALT &none     &none      &none         &none    &none    &none  &none     &none &trans
+   &trans &none     &none    &none     &none      &none         &none    &none      &none        &none        &none      &trans
+   &trans &kp LMETA &kp LALT &kp LCTRL &kp LSHIFT &none         &none    &kp K_PREV &kp K_VOL_DN &kp K_VOL_UP &kp K_NEXT &trans
+   &trans &none     &kp RALT &none     &none      &none         &none    &none      &none        &none        &none      &trans
                     &none     &none       &none              &kp K_STOP  &kp K_PP   &kp K_MUTE
                         >;
                 };
@@ -73,7 +73,7 @@
 //                | . | 0 | - |   | none | none | none |
                         bindings = <
    &trans &kp N7 &kp N8 &kp N9 &kp ASTRK &kp COLON     &none &none      &none     &none    &none     &trans
-   &trans &kp N4 &kp N5 &kp N6 &kp BSLH  &kp EQUAL     &none &kp LSHIFT &kp LCTRL &kp LALT &kp LMETA & trans
+   &trans &kp N4 &kp N5 &kp N6 &kp BSLH  &kp EQUAL     &none &kp LSHIFT &kp LCTRL &kp LALT &kp LMETA &trans
    &trans &kp N1 &kp N2 &kp N3 &kp SLASH &kp SEMI      &none &none      &none     &none    &kp RALT  &trans
                             &kp DOT &kp N0 &kp MINUS   &none   &none   &none
                         >;
@@ -99,7 +99,7 @@
 //                   | APP | SPC | TAB |   | NONE | NONE | NONE |                         
                         bindings = <
    &trans &kp F9 &kp F10 &kp F11 &kp F12 &kp PSCRN       &none &none      &none     &none    &none     &trans 
-   &trans &kp F5 &kp F6  &kp F7  &kp F8  &kp SLCK        &none &kp LSHIFT &kp LCTRL &kp LALT &kp LMETA & trans
+   &trans &kp F5 &kp F6  &kp F7  &kp F8  &kp SLCK        &none &kp LSHIFT &kp LCTRL &kp LALT &kp LMETA &trans
    &trans &kp F1 &kp F2  &kp F3  &kp F4  &kp CLCK        &none &none      &none     &none    &kp RALT  &trans 
                       &kp K_APP &kp SPACE &kp TAB        &none   &none   &none
                         >;
