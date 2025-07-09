@@ -36,7 +36,7 @@
    &trans &bootloader &sys_reset &none     &none      &none     &none      &none    &none     &sys_reset &bootloader  &trans
    &trans &kp LMETA   &kp LALT   &kp LCTRL &kp LSHIFT &none     &caps_word &kp LEFT &kp DOWN  &kp UP     &kp RIGHT    &trans
    &trans &none       &none      &none     &none      &none     &kp INS    &kp HOME &kp PG_DN &kp PG_UP  &kp END      &trans
-                                 &none   &none     &none        &kp RET  &BSPC   &kp DEL
+                                 &none   &none     &none        &kp RET  &kp BSPC   &kp DEL
                         >;
                 };
                 mouse_layer {
