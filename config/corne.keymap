@@ -83,7 +83,7 @@
 // | ____ | ! | @ | { | } | | |   | none | none   | none  | none | none  | ____ |
 // | ____ | # | $ | ( | ) | ` |   | none | LSHIFT | LCTRL | LALT | LMETA | ____ |
 // | ____ | % | ^ | [ | ] | ~ |   | none | none   | none  | RALT | NONE  | ____ |
-//                | - | & | _ |   | NONE | NONE | NONE |
+//                | - | AMPS | _ |   | NONE | NONE | NONE |
                         bindings = <
    &trans &kp EXCL  &kp AT    &kp LBRC &kp RBRC &kp PIPE        &none &none      &none     &none    &none     &trans 
    &trans &kp HASH  &kp DLLR  &kp LPAR &kp RPAR &kp GRAVE       &none &kp LSHIFT &kp LCTRL &kp LALT &kp LMETA &trans
