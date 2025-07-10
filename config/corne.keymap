@@ -86,7 +86,7 @@
 //                | - | & | _ |   | NONE | NONE | NONE |
                         bindings = <
    &trans &kp EXCL  &kp AT    &kp LBRC &kp RBRC &kp PIPE        &none &none      &none     &none    &none     &trans 
-   &trans &kp HASH  &kp DLLR  &kp LPAR &kp RPAR &kp GRAVE       &none &kp LSHIFT &kp LCTRL &kp LALT &kp LMETA & trans
+   &trans &kp HASH  &kp DLLR  &kp LPAR &kp RPAR &kp GRAVE       &none &kp LSHIFT &kp LCTRL &kp LALT &kp LMETA &trans
    &trans &kp PRCNT &kp CARET &kp LBKT &kp RBKT &kp TILDE       &none &none      &none     &none    &kp RALT  &trans 
                              &kp MINUS &kp AMPS &kp UNDER       &none   &none   &none                                
                         >;
