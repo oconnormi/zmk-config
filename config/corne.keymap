@@ -17,6 +17,10 @@
 #define SYMBOL   5
 #define FUNCTION 6
 
+&mt {
+    flavor = "tap-preferred";
+};
+
 / {
         keymap {
                 compatible = "zmk,keymap";
