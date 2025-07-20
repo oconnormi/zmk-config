@@ -66,12 +66,12 @@
                 };
                 media_layer {
 // -----------------------------------------------------------------------------------------
-// | ____ | NONE  | NONE | NONE  | NONE   | NONE |   | NONE | NONE | NONE | NONE | NONE | ____ |
-// | ____ | LMETA | LALT | LCTRL | LSHIFT | NONE |   | NONE | PREV | VOLD | VOLU | NEXT | ____ |
-// | ____ | NONE  | RALT | NONE  | NONE   | NONE |   | NONE | NONE | NONE | NONE | NONE | ____ |
+// | ____ | NONE  | NONE | NONE  | NONE   | NONE |   | NONE | BT_PRV | NONE | NONE | BT_NXT | ____ |
+// | ____ | LMETA | LALT | LCTRL | LSHIFT | NONE |   | NONE | PREV   | VOLD | VOLU | NEXT   | ____ |
+// | ____ | NONE  | RALT | NONE  | NONE   | NONE |   | NONE | NONE   | NONE | NONE | NONE   | ____ |
 //                    | NONE | NONE | NONE |   | STOP | PLAY | MUTE |
                         bindings = <
-   &trans &none     &none    &none     &none      &none         &none    &none      &none        &none        &none      &trans
+   &trans &none     &none    &none     &none      &none         &none    &bt BT_PRV &none        &none        &bt BT_NXT &trans
    &trans &kp LMETA &kp LALT &kp LCTRL &kp LSHIFT &none         &none    &kp K_PREV &kp K_VOL_DN &kp K_VOL_UP &kp K_NEXT &trans
    &trans &none     &kp RALT &none     &none      &none         &none    &none      &none        &none        &none      &trans
                     &none     &none       &none              &kp K_STOP  &kp K_PP   &kp K_MUTE
